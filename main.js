@@ -1,23 +1,44 @@
+//function Calculator(
+
 
 //alert("hello");
 const textButtons = document.querySelectorAll(".number");
-const textOperator = document.querySelectorAll(".operator, .clear");
+const textOperator = document.querySelectorAll(".operator");
 const textCalculate = document.querySelector(".equal-sign");
-const calculation = [];
+const clear = document.querySelector(".clear");
+let screen = document.querySelector(".calculator-screen");
+let calculation = [];
+
+
+let displayValue = '';
+
+//target is .calculator-screen.innerHTML
+//need to update the value with the values contained in the calculation array 
+function updateDisplay() {
+
+};
 
 
 function pushNumber(button) {
-    alert(this.innerHTML);
-    calculation.push(this.innerHTML);
-    
+    displayValue += this.innerHTML;
+    screen.value = displayValue;
+    calculation.push(this.innerHTML); 
+    //this.textButtons.innerHTML = this.screen;
 };
 
 function pushOperator(button) {
-    alert(this.innerHTML)
+    displayValue = "";
+   // alert(this.innerHTML);
     calculation.push(this.innerHTML);
+    
     //console.log(calculation);
 };
 
+function clearButton(button) {
+    alert(this.innerHTML);
+    calculation = [];
+    displayValue = "";
+};
 
 function calculate() {
     //alert("=");
@@ -52,18 +73,27 @@ function calculate() {
     } else {
             alert("Uh, oh! Something went wrong!");
         };
+        displayValue = calculation;
     };
 
 
+
+
+textCalculate.addEventListener("click", calculate);
+
+clear.addEventListener("click",clearButton);
+
  textButtons.forEach((button) => {
-    button.addEventListener("click",pushNumber) 
+    button.addEventListener("click",pushNumber)
 });
 
 textOperator.forEach((button) => {
     button.addEventListener("click",pushOperator) 
 });
 
+ 
 
-textCalculate.addEventListener("click", calculate);
+//)
+
 
 
