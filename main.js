@@ -27,20 +27,24 @@ function pushNumber(button) {
 };
 
 function pushOperator(button) {
-    displayValue = "";
+    
    // alert(this.innerHTML);
     calculation.push(this.innerHTML);
-    
+    displayValue = " ";
+    screen.value = displayValue
     //console.log(calculation);
 };
 
 function clearButton(button) {
-    alert(this.innerHTML);
+    displayValue = " ";
+    screen.value = displayValue
+   // alert(this.innerHTML);
     calculation = [];
-    displayValue = "";
+   
 };
 
 function calculate() {
+
     //alert("=");
     let num1 = "",                  //declare as empty string
         num2 = "",
@@ -61,19 +65,29 @@ function calculate() {
     
         num1 = parseFloat(num1);
         num2 = parseFloat(num2);
-    
+
+  
+
     if (operator === "+") {
-        alert(num1 + num2);
+        screen.value = (num1 + num2);
+    
     } else if (operator === '-' ) {
-        alert(num1 - num2);
+       // alert(num1 - num2);
+       screen.value = (num1 - num2);
+   
     } else if (operator === "*") {
-        alert(num1 * num2);
+        //alert(num1 * num2);
+        screen.value = (num1 * num2);
+      
     } else if (operator === "/") {
-        alert(num1 / num2);
+       // alert(num1 / num2);
+       screen.value = (num1 / num2);
+   
     } else {
             alert("Uh, oh! Something went wrong!");
         };
-        displayValue = calculation;
+    
+       
     };
 
 
