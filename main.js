@@ -22,14 +22,15 @@ function updateDisplay() {
 function pushNumber(button) {
     displayValue += this.innerHTML;
     screen.value = displayValue;
-    calculation.push(this.innerHTML); 
+    calculation.push(this.value); 
+    console.log(calculation)
     //this.textButtons.innerHTML = this.screen;
 };
 
 function pushOperator(button) {
     
    // alert(this.innerHTML);
-    calculation.push(this.innerHTML);
+    calculation.push(this.value);
     displayValue = " ";
     screen.value = displayValue
     //console.log(calculation);
@@ -43,6 +44,7 @@ function clearButton(button) {
    
 };
 
+
 function calculate() {
 
     //alert("=");
@@ -52,6 +54,7 @@ function calculate() {
      const operators = ["*", "/", "+", "-"];
     
         for(let i = 0; i < calculation.length; i++) {
+            
             let char = calculation[i];
             if(operators.includes(char)) {
                 operator = char;
@@ -77,11 +80,13 @@ function calculate() {
    
     } else if (operator === "*") {
         //alert(num1 * num2);
+        console.log('testing')
         screen.value = (num1 * num2);
       
     } else if (operator === "/") {
        // alert(num1 / num2);
        screen.value = (num1 / num2);
+       console.log('testing')
    
     } else {
             alert("Uh, oh! Something went wrong!");
