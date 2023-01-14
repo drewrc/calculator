@@ -1,5 +1,6 @@
-//function Calculator(
+(function() {
 
+    "use strict";
 
 //alert("hello");
 const textButtons = document.querySelectorAll(".number");
@@ -111,8 +112,8 @@ textOperator.forEach((button) => {
 });
 
  
+})();
 
-//)
 
 
 
